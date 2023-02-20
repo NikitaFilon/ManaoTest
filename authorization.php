@@ -1,8 +1,6 @@
 <?php
-
-
 require_once 'Json.php';
-require_once 'SessionManager.php';
+session_start();
 $db = new Json();
 
 if (isset($_POST['login']) && isset($_POST['password'])) {
@@ -11,10 +9,12 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 
     if ($user) {
         if ($user = $db->checkPassword(($_POST['login']), $_POST['password'])) {
-            $_SESSION['logged_user'] = $user['name'];
-
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_name'] = $user['name'];
+            $session_id = session_id();
+            setcookie('session_id', $session_id, time() + 3600, '/');
             ?>
-            <script> location.replace("index.php"); </script>
+            <script> location.replace("index.php");  </script>
             <?php
         } else {
 

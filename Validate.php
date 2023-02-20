@@ -35,7 +35,7 @@ class Validate
             $errors[] = "The repeated password was entered incorrectly!";
         }
 
-        if (strlen($user->getLogin()) < 5) {
+        if (strlen($user->getLogin()) < 6) {
             $errors[] = "Invalid login length";
         }
 
@@ -47,7 +47,7 @@ class Validate
             $errors[] = 'Invalid login(only letter)';
         }
 
-        if (strlen($user->getPassword()) < 5) {
+        if (strlen($user->getPassword()) < 6) {
             $errors[] = "Invalid password( min 6 letter)";
         }
 

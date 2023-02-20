@@ -1,9 +1,17 @@
 <?php
-require_once 'SessionManager.php';
-require_once 'Redirector.php';
+session_start();
 
-$sessionManager = new SessionManager();
-$sessionManager->destroy();
+require __DIR__ . '/header.php';
 
-$redirector = new Redirector('index.php');
-$redirector->redirect('You have been logged out');
+
+if (isset($_COOKIE['session_id'])) {
+    setcookie('session_id', '', time() - 3600, '/');
+}
+
+
+unset($_SESSION['user_id']);
+unset($_SESSION['user_name']);
+
+session_destroy();
+?>
+<script> location.replace("index.php"); </script>

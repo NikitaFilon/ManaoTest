@@ -1,7 +1,6 @@
 <?php
 require_once 'SessionManager.php';
 
-$sessionManager = new SessionManager();
 
 require __DIR__ . '/header.php';
 ?>

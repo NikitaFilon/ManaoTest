@@ -4,7 +4,7 @@
 class Json
 {
 
-    private $jsonFile = "user.json";
+    private $jsonFile = "data/user.json";
 
     public function getSingle($login)
     {

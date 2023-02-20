@@ -9,14 +9,17 @@ require __DIR__ . '/header.php'; ?>
         <div class="col-sm-6">
             <input type="text" id="txt_name" pattern="^\S*[a-zA-Z]+" minlength="2" maxlength="2" class="form-control"
                    required placeholder="enter name"/>
+            <span id="name-error" class="error"></span>
+
         </div>
     </div>
 
     <div class="form-group">
         <label class="col-sm-3 control-label">Login</label>
         <div class="col-sm-6">
-            <input type="text" minlength="6" pattern="^\S*$" required id="txt_login" class="form-control"
+            <input type="text" minlength="6" pattern="^\S(.*\S)?$"  required id="txt_login" class="form-control"
                    placeholder="enter login"/>
+            <span id="login-error" class="error"></span>
         </div>
     </div>
 
@@ -25,6 +28,7 @@ require __DIR__ . '/header.php'; ?>
         <div class="col-sm-6">
             <input required pattern="^\S*[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" type="email" id="txt_email"
                    class="form-control" placeholder="enter email"/>
+            <span id="email-error" class="error"></span>
         </div>
     </div>
 
@@ -33,6 +37,7 @@ require __DIR__ . '/header.php'; ?>
         <div class="col-sm-6">
             <input minlength="6" onkeyup='check();' required pattern="^\S*[a-zA-Z0-9]+$" type="password"
                    id="txt_password" class="form-control" placeholder="enter password"/>
+            <span id="password-error" class="error"></span>
         </div>
     </div>
 
@@ -41,6 +46,7 @@ require __DIR__ . '/header.php'; ?>
         <div class="col-sm-6">
             <input minlength="6" onkeyup='check();' required pattern="^\S*[a-zA-Z0-9]+$" type="password"
                    id="txt_confirmPassword" class="form-control" placeholder="enter confirm password"/>
+            <span id="confirm-password-error" class="error"></span>
         </div>
         <span
                 id='messages'></span>

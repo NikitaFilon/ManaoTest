@@ -6,14 +6,20 @@
     <meta content="text/html; charset=utf-8">
 </head>
 <?php
-require_once 'SessionManager.php';
+if (isset($_COOKIE['session_id'])) {
+    session_id($_COOKIE['session_id']);
+    session_start();
+}
 
-$sessionManager = new SessionManager();
-if (isset($sessionManager)) :
-    $name = $sessionManager->get('logged_user');
-    echo "<h5>$name</h5>";
-else :
-    echo "<h5>Авторизуйтесь</h5>";
-endif;
+if (isset($_SESSION['user_id'])) {
+    ?><br>Hello, <?php echo $_SESSION['user_name']; ?></br>
+        <a href="logout.php">Выйти</a><?php
+} else {
+    ?><a href="login.php">Авторизоваться</a><br>
+    <a href="signup.php">Регистрация</a><?php
+}
+
 ?>
 <body>
+<bod
+</html>
